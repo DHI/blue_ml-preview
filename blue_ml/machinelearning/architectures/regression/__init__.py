@@ -2,7 +2,6 @@
 
 from blue_ml.machinelearning.architectures.regression.gradient_boosting import (
     BlueGBoost,
-    BlueHGBoost,
 )
 from blue_ml.machinelearning.architectures.regression.linear import (
     BlueLinearModel,

@@ -18,16 +18,13 @@ dependencies = [
     "mikeio>=2.6.0",
     "darts>=0.29.0,<=0.35.0",  # darts 0.29.0+ supports Python 3.12
     "plotly",
-    "optuna>=4.2.1",
     "seaborn",
-    "onnx==1.17.0",
-    "onnxruntime==1.21.0",
-    "skl2onnx==1.18.0",
     "setuptools<67",
 ]
 
 authors = [
     { name = "Stephan Kistner", email = "stki@dhigroup.com" },
+    { name = "Jannik Elsasser", email = "jael@dhigroup.com" },
     { name = "Jaume Palmer Real", email = "japr@dhigroup.com" },
 ]
 
@@ -40,7 +37,7 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering",
 ]
 
@@ -71,7 +68,6 @@ test = [
     "netCDF4",
     "mypy",
     "darts",
-    "optuna",
     "ruff==0.8.*",
     "pandas-stubs",
     "types-seaborn",
@@ -84,8 +80,8 @@ notebooks = ["jupyter"]
 
 
 [project.urls]
-"Homepage" = "https://github.com/DHI/blue.ml"
-"Bug Tracker" = "https://github.com/DHI/blue.ml/issues"
+"Homepage" = "https://github.com/DHI/blue_ml-preview"
+"Bug Tracker" = "https://github.com/DHI/blue_ml-preview/issues"
 
 [tool.pytest.ini_options]
 markers = [

@@ -45,7 +45,6 @@ class _EncodeDecode(ABC):
     TYPENAME = "__type__.__name__"
     TYPEMODULE = "__type__.__module__"
     KERASMODEL = "__keras__model__"
-    ONNXMODEL = "__onnx__model__"
     SLICEOBJ = "__obj__.__slice__"
     MODELPATH = "FILEPATH:"
 
@@ -58,7 +57,6 @@ class _EncodeDecode(ABC):
         "numpy",
         "blue_ml.timeseries.pipeline._pipeline",
         "blue_ml.machinelearning.architectures.keras.keras",
-        "blue_ml.machinelearning.architectures.onnx.onnx",
         "blue_ml.machinelearning.architectures.regression.gradient_boosting",
         "blue_ml.machinelearning.architectures.regression.linear",
         "blue_ml.machinelearning.windowgenerator",
@@ -166,12 +164,7 @@ class SerializeKerasModel(_EncodeDecode):
         return model
 
 
-class SerializeSklearnModel(_EncodeDecode):
-    def encode_as_onnx(obj):
-        # We just need to convert to BlueOnnx - the encoding will then catch
-        # the model as a SerializeOnnxModel inside BlueML serialization
-        model = obj.to_onnx_model()
-        return model
+class SerializeSklearnModel(_EncodeDecode): ...
 
 
 class SerializeSlice(_EncodeDecode):
@@ -227,7 +220,6 @@ class BlueEncoder(json.JSONEncoder):
             module in obj.__class__.__module__
             for module in (
                 "blue_ml.timeseries.transforms._transforms",
-                "blue_ml.machinelearning.architectures.onnx.onnx",
                 "blue_ml.machinelearning.architectures.keras.keras",
                 "blue_ml.machinelearning.windowgenerator",
                 "sklearn.preprocessing._data",

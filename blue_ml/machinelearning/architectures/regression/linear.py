@@ -1,16 +1,8 @@
 """Linear regression models."""
 
-from typing import Optional
-
-import numpy as np
-import optuna
-from sklearn.feature_selection import RFECV  # type: ignore[import-untyped]
-from sklearn.linear_model import LinearRegression, Ridge  # type: ignore[import-untyped]
-
 from blue_ml.machinelearning.architectures.regression.base_class import (
     BlueRegressionModel,
 )
-from blue_ml.timeseries import Timeseries
 
 
 class BlueLinearModel(BlueRegressionModel):

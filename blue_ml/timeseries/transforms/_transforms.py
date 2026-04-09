@@ -6,12 +6,9 @@ import sklearn.preprocessing as sk_scalers  # type: ignore[import-untyped]
 import xarray as xr
 from pandas import Timedelta
 from pandas.tseries.offsets import DateOffset
-from scipy.fft import fft, fftfreq  # type: ignore[import-untyped]
-from scipy.signal import find_peaks  # type: ignore[import-untyped]
 
 from blue_ml._utils import warn
-from blue_ml.analysis.utils import crosscorrelation
-from blue_ml.machinelearning.architectures.base_class import ONNX_FLOAT_FORMAT
+from blue_ml.machinelearning.architectures.base_class import FLOAT_FORMAT
 from blue_ml.timeseries.timeseries import ItemClass, Timeseries
 from blue_ml.timeseries.timeseries_item import ItemAlias
 from blue_ml.timeseries.transforms._base_class import (
@@ -988,38 +985,6 @@ class RobustScaler(_SkScalerWrapper):
         )
 
 
-class CastTransformer(GenericVariableTransformer):
-    """Cast features into a specific type.
-
-    Adapted from skl2onnx.sklapi.CastTransformer.
-    This should be used to minimize the conversion
-    of a pipeline using float32 instead of double.
-
-    Parameters
-    ----------
-    dtype : numpy type,
-        output are cast into that type
-    """
-
-    def __init__(self, *, dtype=ONNX_FLOAT_FORMAT):
-        self.dtype = dtype
-
-    def _cast(self, ts: Timeseries, name: str):
-        try:
-            a2 = ts.as_xarray().astype(ONNX_FLOAT_FORMAT)
-        except ValueError as e:
-            # Use generic type description since Timeseries doesn't have dtype
-            raise ValueError(
-                "Unable to cast {} from original type into {}.".format(name, self.dtype)
-            ) from e
-        return a2
-
-    def transform(self, x, **params) -> Timeseries:
-        """Casts array X."""
-        X_out = self._cast(x, "X")
-        return Timeseries(X_out, features=x.features.names, targets=x.targets.names)
-
-
 class DropEmptyAttrs(GenericVariableTransformer):
     """Transformer clean attributes which may cause issues in serialization of the data.
 
@@ -1039,21 +1004,3 @@ class DropEmptyAttrs(GenericVariableTransformer):
     def transform(self, x, y=None, **params):
         """Casts array X."""
         raise NotImplementedError("Need to remove '_ds' calls from this transformation")
-        # ts_out = X.copy()
-        # for data_var in ts_out._ds.data_vars:
-        #     attrs = ts_out._ds[data_var].attrs
-
-        #     for k in list(attrs.keys()):
-        #         if attrs[k] is None:
-        #             if self.replacevalue:
-        #                 ts_out._ds[data_var].attrs[k] = self.replacevalue
-        #             else:
-        #                 del attrs[k]
-        # for k in list(ts_out._ds.attrs.keys()):
-        #     if ts_out._ds.attrs[k] is None:
-        #         if self.replacevalue:
-        #             ts_out._ds.attrs[k] = self.replacevalue
-        #         else:
-        #             del ts_out._ds.attrs[k]
-
-        # return ts_out

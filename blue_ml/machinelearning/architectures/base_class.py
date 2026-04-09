@@ -171,7 +171,7 @@ class BlueMLModel(ABC, MLUtilsMixin):
 
         self._target_names = self._train_ts.targets.names
         self._feature_names = self._train_ts.features.names
-        # Onnx requires dtypes
+        # dtypes
         self._feature_dtypes = {
             d: v for d, v in self._train_ts.features.to_dataset().dtypes.items()
         }
@@ -217,7 +217,7 @@ class BlueMLModel(ABC, MLUtilsMixin):
         self, ts: Optional[Timeseries] = None, *, use_test: bool = False
     ) -> Timeseries:
         ts_features = self._set_ts_for_prediction(ts, use_test)
-        # Casting to float32 to comply with onnx requirements
+        # Casting to float32
         X_ = ts_features.values.astype(FLOAT_FORMAT)
         # TODO: This step should not be necessary. There is a problem
         # when sklearn calls a transform method, that could be overwriting

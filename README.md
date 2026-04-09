@@ -1,5 +1,25 @@
-# blue_ml-preview [UNDER CONSTRUCTION 🚧]
+<img src="images/logo.svg" width="450">
 
-Accurate metocean forecasts are increasingly important for the planning and operations of small and medium-sized enterprises (SMEs) in the offshore and renewable energy sectors. However, access to high-quality metocean forecasts is often expensive, creating a significant barrier to entry for smaller companies. Although global models and publicly available datasets are excellent resources, the forecasts they produce are often too imprecise to be applied at a local scale, limiting their applicability for decision-support services in the offshore industry. BlueML is a user-friendly framework designed to address this challenge by democratising machine learning (ML) for metocean applications. The framework enables SMEs to improve freely available global forecasts through downscaling and non-linear bias correction, improving local deterministic accuracy without requiring deep ML expertise or expensive computational resources. BlueML combines intuitive and modular workflows, allowing users to quickly train, test and operationalise ML techniques to deterministic and ensemble datasets, using their own observations or publicly available datasets. By lowering technical and financial barriers, BlueML empowers SMEs to make better-informed decisions, reduce operational risks, and compete on a more level playing field. Early case studies show that ML framework significantly improves wind and wave predictions compared to raw global model outputs, delivering actionable insights for offshore operations and decision support.
+# BlueML: machine learning for metocean models  
+## [🚧 Pre-release version - expect breaking changes 🛠️]
 
-![alt text](image.png)
+
+
+The library for finetuning your metocean model results to real world observations. 
+
+## Getting Started
+
+```bash
+pip install blue_ml
+```
+
+- [Notebooks](./notebooks/README.md) - Interactive examples and tutorials
+- [Documentation](https://dhi.github.io/blue_ml/) - Detailed API reference
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/DHI/blue_ml) or open an issue.  

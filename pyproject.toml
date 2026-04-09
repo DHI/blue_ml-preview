@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "blue_ml"
-version = "0.5.1"
+version = "0.6.0a1"
 dependencies = [
     "numpy>=1.26.4",
     "pandas>=2.2.3",

@@ -42,7 +42,7 @@ Fit and evaluate the model
 model_skill = model_frame.fit_evaluate(timeseries)
 model_skill.plot_scatter()
 ```
-![alt text](image-1.png)
+![alt text](images/modelskill.png)
 
 
 

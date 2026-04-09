@@ -4,7 +4,6 @@
 ## [🚧 Pre-release version - expect breaking changes 🛠️]
 
 
-
 The library for finetuning your metocean model results to real world observations. 
 
 ## Getting Started
@@ -13,8 +12,7 @@ The library for finetuning your metocean model results to real world observation
 pip install blue_ml
 ```
 
-- [Notebooks](./notebooks/README.md) - Interactive examples and tutorials
-- [Documentation](https://dhi.github.io/blue_ml/) - Detailed API reference
+- [Notebook: Workflow quick start](./notebooks/WorkflowExample.ipynb)
 
 ## License
 
@@ -22,4 +20,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/DHI/blue_ml) or open an issue.  
+For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/DHI/blue_ml-preview) or open an issue.  

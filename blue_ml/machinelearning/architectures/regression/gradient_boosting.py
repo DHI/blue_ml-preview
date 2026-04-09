@@ -1,14 +1,8 @@
 """Gradient boosting regression models."""
 
-from itertools import combinations
-from typing import List, Optional, Tuple, Union, cast
-
-import numpy as np
-
 from blue_ml.machinelearning.architectures.regression.base_class import (
     BlueRegressionModel,
 )
-from blue_ml.timeseries import Timeseries
 
 
 class BlueGBoost(BlueRegressionModel):

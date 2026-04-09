@@ -16,6 +16,5 @@ __all__ = [
     "BlueGBoost",
     "BlueDense",
     "BlueLSTM",
-    "BlueOnnx",
     "read",
 ]
